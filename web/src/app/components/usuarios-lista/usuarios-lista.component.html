@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="user-list">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Listado de Usuarios</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-selection-list [multiple]="false">
+          <mat-list-option *ngFor="let user of users" (click)="seleccionarUsuario(user)">{{user.name}}</mat-list-option>
+        </mat-selection-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="user-detail">
+    <h3 *ngIf="!usuarioSeleccionado">Seleccione un usuario</h3>
+    <mat-card *ngIf="usuarioSeleccionado">
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>{{usuarioSeleccionado.name}}</mat-card-title>
+        <mat-card-subtitle>{{usuarioSeleccionado.username}}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <dl class="content-card">
+          <dt>Correo Electrónico</dt>
+          <dd>{{usuarioSeleccionado.email}}</dd>
+          <dt>Teléfono</dt>
+          <dd>{{usuarioSeleccionado.phone}}</dd>
+          <dt>Sitio Web</dt>
+          <dd>{{usuarioSeleccionado.website}}</dd>
+          <dt>Empresa</dt>
+          <dd>{{usuarioSeleccionado.company.name}}</dd>
+          <dt>Dirección</dt>
+          <dd>{{usuarioSeleccionado.address.city}}, {{usuarioSeleccionado.address.street}} {{usuarioSeleccionado.address.suite}}</dd>
+        </dl>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <mat-card-actions>
+        <button mat-raised-button><mat-icon>update</mat-icon> Actualizar</button>
+        <button mat-raised-button color="warn"><mat-icon>delete</mat-icon> Borrar</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.container-global{
+  margin: 20px 20%;
+}
+
+@media screen and (max-width: 900px) {
+  .container-global{
+    margin: 20px;
+  }
+}
